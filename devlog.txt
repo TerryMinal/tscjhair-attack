@@ -43,3 +43,20 @@ terryG -- 2017-12-20 8:00 PM
 jenniferZ -- 2017-12-21 1:05 PM
 --------------------------------
 - Created devlog and pushed design doc to the repo
+
+guanT -- 2017-12-23 9:18 AM
+--------------------------------
+FEEDBACK FOR DESIGN DOC:
+- Many people are confused about how the machine learning aspect will work
+- Need roles to be more specific 
+- Need to add a registering process to site map 
+- Specify API's
+
+DESIGN DOC EDITS: 
+- Can't be anymore specific in regards to machine learning because the algorithm is 
+too complicated to clarify in the design doc w/o confusing the reader. It is a 
+concept that the reader should logically deduce when he or she sees any references 
+to machine learning as "a process by which the program adapts itself to fit better 
+for the situation at hand". 
+- Added registering process onto site map 
+- Clarified component map
