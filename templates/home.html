@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}
+    Home
+{% endblock %}
+
+
+{% block body %}
+<center>
+  <h1>Welcome, {{user}}!</h1>
+  <h3>Choose your art medium!</h3><br><br>
+
+  {% for medium in mediums %}
+  <a href="/display">{{medium}}</a><br>
+  {% endfor %}
+  
+</center>
+
+
+
+{% endblock %}

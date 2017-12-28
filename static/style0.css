@@ -1,0 +1,17 @@
+body{
+    background-color: #ffe8f8;
+
+}
+.nav-title{
+    color:#ff0000;
+    font-family: Tahoma;
+    font-weight: bold;
+}
+.nav-text{
+    color:#ff6363;
+    font-weight: bold;
+}
+.nav-title:hover{
+    color:#ffffff;
+    text-decoration: none;
+}
