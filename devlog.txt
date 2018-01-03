@@ -60,3 +60,8 @@ to machine learning as "a process by which the program adapts itself to fit bett
 for the situation at hand". 
 - Added registering process onto site map 
 - Clarified component map
+
+jenniferZ -- 2017-12-28 10:17 AM
+--------------------------------
+- Started on basic front end, and now all the necessary pages can be rendered in the flask app.
+- Added custom css file: style0.css
