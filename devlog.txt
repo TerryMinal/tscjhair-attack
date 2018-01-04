@@ -65,3 +65,13 @@ jenniferZ -- 2017-12-28 10:17 AM
 --------------------------------
 - Started on basic front end, and now all the necessary pages can be rendered in the flask app.
 - Added custom css file: style0.css
+
+jenniferZ -- 2017-01-03 1:17 PM
+--------------------------------
+- Updated base.html for flash messages
+- Updated style0.css with prettier colors
+
+jenniferZ -- 2017-12-28 11:23 PM
+--------------------------------
+- Updated base.html so that it embeded the necessary fonts from Google Fonts
+- Updated style0.css so that it has fonts: Done with basic front end
