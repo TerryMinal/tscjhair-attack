@@ -1,41 +1,48 @@
 body{
     background-color: #ffe8f8;
-    font-family: Tahoma;
-    font-size: 170%;
+    color: #c15d75;
+    font-size: 175%;
+    font-weight: bold;
+    font-family: 'Kalam';
 }
 h1{
     //color: #d60e3e;
     //color: #f26887;
     //color: #fc7190;
     color: #ff476f;
+    font-size: 250%;
     font-weight: bold;
+    font-family: 'Great Vibes';
 }
 h3{
     //color: #f20e45;
-    color: #ff89a3;
+    //color: #ff89a3;
+    color: #c64b69;
+    font-size: 175%;
     font-weight: bold;
+    font-family: 'Tangerine';
 }
 a{
     color: #f77695;
+    font-weight: normal;
 }
 a:hover{
     color: #ffb2c4;
-
+}
+form{ 
+    color: #c64b69;
 }
 .nav-title{
     color: #ff0000; 
-    font-family: Tahoma;
-    font-weight: bold;
-    //font-size: 140%;
     font-size: 125%;
+    font-weight: bold;
+    font-family: 'Great Vibes';
 }
 .nav-text{
     color: #ff6363;
-    font-family: Tahoma;
     font-weight: bold;
-    //font-size: 125%;
+    font-family: 'Kalam';
 }
 .nav-title:hover{
     color: #ffffff;
-    //text-decoration: none;
 }
