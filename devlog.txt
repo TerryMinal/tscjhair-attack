@@ -48,20 +48,23 @@ guanT -- 2017-12-23 9:18 AM
 --------------------------------
 FEEDBACK FOR DESIGN DOC:
 - Many people are confused about how the machine learning aspect will work
-- Need roles to be more specific 
-- Need to add a registering process to site map 
+- Need roles to be more specific
+- Need to add a registering process to site map
 - Specify API's
 
-DESIGN DOC EDITS: 
-- Can't be anymore specific in regards to machine learning because the algorithm is 
-too complicated to clarify in the design doc w/o confusing the reader. It is a 
-concept that the reader should logically deduce when he or she sees any references 
-to machine learning as "a process by which the program adapts itself to fit better 
-for the situation at hand". 
-- Added registering process onto site map 
+DESIGN DOC EDITS:
+- Can't be anymore specific in regards to machine learning because the algorithm is
+too complicated to clarify in the design doc w/o confusing the reader. It is a
+concept that the reader should logically deduce when he or she sees any references
+to machine learning as "a process by which the program adapts itself to fit better
+for the situation at hand".
+- Added registering process onto site map
 - Clarified component map
 
 jenniferZ -- 2017-12-28 10:17 AM
 --------------------------------
 - Started on basic front end, and now all the necessary pages can be rendered in the flask app.
 - Added custom css file: style0.css
+
+petersS -- 2018-1-3 21:26
+Started primitive version of database
