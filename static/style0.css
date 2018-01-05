@@ -5,7 +5,7 @@ body{
     background-color: #ffe8f8;
     color: #c15d75;
     font-size: 175%;
-    font-weight: bold;
+    //font-weight: bold;
     font-family: 'Kalam';
 }
 h1{
@@ -14,7 +14,7 @@ h1{
     //color: #fc7190;
     color: #ff476f;
     font-size: 250%;
-    font-weight: bold;
+    //font-weight: bold;
     font-family: 'Great Vibes';
 }
 h3{
@@ -22,12 +22,11 @@ h3{
     //color: #ff89a3;
     color: #c64b69;
     font-size: 175%;
-    font-weight: bold;
+    //font-weight: bold;
     font-family: 'Tangerine';
 }
 a{
     color: #f77695;
-    font-weight: normal;
 }
 a:hover{
     color: #ffb2c4;
