@@ -24,8 +24,8 @@
 	  <a class="navbar-brand" href="/"><span class="nav-title">For the Love of Art</span></a>
 	</div>
 	<ul class="nav navbar-nav navbar-right">
-	  <li><a href="/register"><span class="nav-text">Register!</span></a></li>
-	  <li><a href="/login"><span class="nav-text">Login!</span></a></li>
+	  <li><a href="/register"><span class="nav-text">{% block register %}{% endblock %}</span></a></li>
+	  <li><a href="/login"><span class="nav-text">{% block login %}{% endblock %}</span></a></li>
 	</ul>
       </div>
     </nav>
