@@ -48,17 +48,17 @@ guanT -- 2017-12-23 9:18 AM
 --------------------------------
 FEEDBACK FOR DESIGN DOC:
 - Many people are confused about how the machine learning aspect will work
-- Need roles to be more specific 
-- Need to add a registering process to site map 
+- Need roles to be more specific
+- Need to add a registering process to site map
 - Specify API's
 
-DESIGN DOC EDITS: 
-- Can't be anymore specific in regards to machine learning because the algorithm is 
-too complicated to clarify in the design doc w/o confusing the reader. It is a 
-concept that the reader should logically deduce when he or she sees any references 
-to machine learning as "a process by which the program adapts itself to fit better 
-for the situation at hand". 
-- Added registering process onto site map 
+DESIGN DOC EDITS:
+- Can't be anymore specific in regards to machine learning because the algorithm is
+too complicated to clarify in the design doc w/o confusing the reader. It is a
+concept that the reader should logically deduce when he or she sees any references
+to machine learning as "a process by which the program adapts itself to fit better
+for the situation at hand".
+- Added registering process onto site map
 - Clarified component map
 
 jenniferZ -- 2017-12-28 10:17 AM
@@ -81,3 +81,7 @@ CalebS -- 2017-01-04 10:56 PM
 - Updated app.py and added a basic authentication framework to be incorporated with db for completion. Once logged in, /login and /register redirect to the home page.
 - Updated templates so once logged in, the options in the header to link to /login and /register do not appear.
 - Updated flash messages for failed login
+
+petersS 2018-1-5 1:41
+--------------------------------
+Added spotify API template.
