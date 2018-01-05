@@ -10,8 +10,11 @@ def checkIfLogged():
 @app.route("/")
 def home():
     med = {"art", "photography", "digital", "painting", "music"}
-    return render_template("home.html", user="me", mediums=med)
-
+    if checkIfLogged():
+        print "logged in"
+        return render_template("home.html", user="me", mediums=med)
+    else:
+        return render_template("home.html", user="me", mediums=med, logged=checkIfLogged())
 @app.route("/register")
 def register():
     if checkIfLogged():
@@ -32,16 +35,13 @@ def auth():
         usernamein = request.form.get('username')
         passwordin = request.form.get('password')
         if usernamein == "USER" and passwordin == "PASS":
-            print "got good info from form"
             session["username"] = usernamein
-            print "yayy"
             return redirect(url_for("home"))
         else:
-            print "not correct user stuff"
             flash("WRONG USER/PASS COMBO")
+            flash("TRY AGAIN")
             return redirect(url_for("login"))
     except:
-        print "except block"
         return redirect(url_for("login"))
         
 @app.route("/display")
