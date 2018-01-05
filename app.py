@@ -1,41 +1,47 @@
 from flask import Flask, render_template, session, flash, redirect, url_for, request
+import os
 
 app = Flask(__name__)
+app.secret_key = os.urandom(32)
 
 def checkIfLogged():
-    if "username" in session:
-            return redirect(url_for("home"))
-
+    return session.get("username")
+          
 @app.route("/")
 def home():
-    checkIfLogged()
     med = {"art", "photography", "digital", "painting", "music"}
     return render_template("home.html", user="me", mediums=med)
 
 @app.route("/register")
 def register():
-    checkIfLogged()
+    if checkIfLogged():
+        return redirect(url_for("home"))
     return render_template("register.html")
 
 @app.route("/login")
 def login():
-    checkIfLogged()
-    print "please"
+    if checkIfLogged():
+        return redirect(url_for("home"))
     return render_template("login.html")
 
 @app.route("/auth", methods=["GET","POST"])
 def auth():
-    checkIfLogged()
+    if checkIfLogged():
+        return redirect(url_for("home"))
     try:
-        username = request.form.get('username')
-        password = request.form.get('password')
-        if username == "USER" and password == "PASS":
-            session["username"] = username
+        usernamein = request.form.get('username')
+        passwordin = request.form.get('password')
+        if usernamein == "USER" and passwordin == "PASS":
+            print "got good info from form"
+            session["username"] = usernamein
+            print "yayy"
             return redirect(url_for("home"))
         else:
+            print "not correct user stuff"
             flash("WRONG USER/PASS COMBO")
             return redirect(url_for("login"))
     except:
+        print "except block"
         return redirect(url_for("login"))
         
 @app.route("/display")
