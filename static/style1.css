@@ -1,56 +1,48 @@
 nav{
-    background-color: #ffc9e9;
+    background-color:#91d8ff;
 }
 body{
-    background-color: #ffe8f8;
-    color: #c15d75;
+    background-color: #aaeeff;
+    color: #1e9aff;
     font-size: 175%;
     font-weight: bold;
     font-family: 'Kalam';
 }
 h1{
-    //color: #d60e3e;
-    //color: #f26887;
-    //color: #fc7190;
-    color: #ff476f;
+    color: #1e9aff;
     font-size: 250%;
     font-weight: bold;
     font-family: 'Great Vibes';
 }
 h3{
-    //color: #f20e45;
-    //color: #ff89a3;
-    color: #c64b69;
+    color: #1e9aff;
     font-size: 175%;
     font-weight: bold;
     font-family: 'Tangerine';
 }
 a{
-    color: #f77695;
+    color: #1e9aff;
     font-weight: normal;
 }
 a:hover{
     color: #ffb2c4;
 }
 form{ 
-    color: #c64b69;
+    color: #1e9aff;
 }
 input{
-    //color: #000000;
-    //color: #77001a;
-    //color: #bf2043;
-    color: #c62146;
+    color: #1e9aff;
     font-weight: normal;
 
 }
 .nav-title{
-    color: #ff0000; 
+    color: #1e9aff; 
     font-size: 125%;
     font-weight: bold;
     font-family: 'Great Vibes';
 }
 .nav-text{
-    color: #ff6363;
+    color: #1e9aff;
     font-weight: bold;
     font-family: 'Kalam';
 }
