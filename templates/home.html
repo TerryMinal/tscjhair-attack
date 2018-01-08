@@ -3,16 +3,6 @@
     Home
 {% endblock %}
 
-{% block login %}
-{% if notlogged %}
-<ul class="nav navbar-nav navbar-right">
-  <li><a href="/register"><span class="nav-text">Register the fuckk!</span></a></li>
-  <li><a href="/login"><span class="nav-text">Login!</span></a></li>
-</ul>
-{% endif %}
-{% endblock %}
-
-
 {% block body %}
 <center>
   <h1>Welcome, {{user}}!</h1>
@@ -22,8 +12,10 @@
   <a href="/display">{{medium}}</a><br>
   {% endfor %}
   
+  <br><br><br>
+  <a href="/logout"> Log out here! </a>
+  
 </center>
-
 
 
 {% endblock %}

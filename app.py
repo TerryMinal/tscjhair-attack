@@ -14,7 +14,8 @@ def home():
         print "logged in"
         return render_template("home.html", user="me", mediums=med)
     else:
-        return render_template("home.html", user="me", mediums=med, logged=checkIfLogged())
+        print "notlogged"
+        return render_template("home.html", user="me", mediums=med, notlogged=True)
 @app.route("/register")
 def register():
     if checkIfLogged():
