@@ -85,3 +85,7 @@ CalebS -- 2017-01-04 10:56 PM
 petersS 2018-1-5 1:41
 --------------------------------
 Added spotify API template.
+
+jenniferZ -- 2017-01-03 2:49 PM
+--------------------------------
+- Added new style, style1.css, to fit Terry's color tastes
