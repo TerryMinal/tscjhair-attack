@@ -1,0 +1,56 @@
+import sqlite3
+
+#Databases:
+    #images: name|id|url|tags
+    #users: username|email|password|ml
+
+def command(command, f='data.db'):
+    db = sqlite3.connect(f)
+    c = db.cursor()
+    r = c.execute(command)
+    db.commit()
+    db.close()
+    return r
+
+def print_all_from_table(table, f='data.db'):
+    db = sqlite3.connect(f)
+    c = db.cursor()
+    inp = "SELECT * FROM " + table + ";"
+    print inp
+    r = c.execute(inp)
+    for entry in r:
+        print entry
+
+def get_table_size(table, f='data.db'):
+    #inefficent but fight me
+    db = sqlite3.connect(f)
+    c = db.cursor()
+    inp = "SELECT id FROM " + table + ";"
+    r = c.execute(inp)
+    new = -1
+    for num in r:
+        new = num
+    print new
+    ret =new[0]+1
+    return ret
+
+
+def add_person(username, email, password, ml):
+    comm = "INSERT INTO users VALUES (\"" + str(get_table_size('users')) + "\", \"" + username + "\", \"" + email + "\", \"" + password + "\", \"" + ml + "\");"
+    command(comm)
+
+def get_ml_by_id(id, f='data.db'):
+    db = sqlite3.connect(f)
+    c = db.cursor()
+    inp = "SELECT ml FROM users WHERE id=\"" + str(id) + "\";"
+    r = c.execute(inp)
+    tup = None
+    for entry in r:
+        tup = entry[0]
+    return tup
+
+def edit_ml_by_id(id, ml, f='data.db'):
+    comm = "UPDATE users SET ml=\"" + ml + "\" WHERE id=\""+str(id)+"\";"
+    command(comm)
+
+print_all_from_table('users')
