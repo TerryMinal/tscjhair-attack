@@ -90,7 +90,7 @@ jenniferZ -- 2017-01-03 2:49 PM
 --------------------------------
 - Added new style, style1.css, to fit Terry's color tastes
 
-calebS and jenniferZ -- 2017-01-03 2:49 PM
+calebS and jenniferZ -- 2017-01-08 1:19 PM
 --------------------------------
 - Updated templates so that the necessary buttons are shown when a user is logged in, or not logged in
   - **TO DO**: Assume templates are logged in or not (based on what it is)
