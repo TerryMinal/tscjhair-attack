@@ -1,6 +1,6 @@
 import urllib2
 import json
-
+# NOTE: MUST PIP INSTALL CLARIFAI
 def getKey(filename):
     try:
         f = open(filename)
@@ -22,15 +22,20 @@ def getty(answer):
 
 
 
-print getty("pie")
+#print getty("pie")
 
 
 
 from clarifai.rest import ClarifaiApp
 from clarifai.rest import Image as ClImage
-def clarifai(img):
+def clarifai(imgurl):
     app = ClarifaiApp(api_key=getKey("clarifaikey.txt"))
     model = app.models.get('general-v1.3')
-    image = ClImage(url=img)
-    model.predict([image])
+    image = ClImage(url=imgurl)
+    attributes = []
+    modelret = model.predict([image])["outputs"][0]["data"]["concepts"] 
+    for i in range(len(modelret)):
+        attributes.append(modelret[i]["name"])
+    return attributes
 
+print clarifai(getty("pie"))
