@@ -102,4 +102,6 @@ Began work on API calls for GettyImages. Also procured key for the API (not push
 
 calebS -- 2017-01-10 6:03 PM
 --------------------------------
-Worked with Getty Image and Clarifai API. An image url that is received from getty images is run through Clarifai and a list of words associated with the image are returned. The idea is that these terms associated with the Getty Image image will then be cycled through Getty Image to output an image to the user (depending on whether or not the user liked the original image of course). 
+Worked with Getty Image and Clarifai API. An image url that is received from getty images is run through Clarifai and a list of words
+associated with the image are returned. The idea is that these terms associated with the Getty Image image will then be cycled through 
+Getty Image to output an image to the user (depending on whether or not the user liked the original image of course). 
