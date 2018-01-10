@@ -15,18 +15,18 @@ def home():
         return render_template("home.html", user="me", mediums=med)
     else:
         print "notlogged"
-        return render_template("home.html", user="me", mediums=med, notlogged=True)
+        return render_template("login.html", notlogged=True)
 @app.route("/register")
 def register():
     if checkIfLogged():
         return redirect(url_for("home"))
-    return render_template("register.html")
+    return render_template("register.html", notlogged=True)
 
 @app.route("/login")
 def login():
     if checkIfLogged():
         return redirect(url_for("home"))
-    return render_template("login.html")
+    return render_template("login.html", notlogged=True)
 
 @app.route("/auth", methods=["GET","POST"])
 def auth():
