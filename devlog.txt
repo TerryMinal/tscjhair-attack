@@ -90,11 +90,9 @@ jenniferZ -- 2017-01-03 2:49 PM
 --------------------------------
 - Added new style, style1.css, to fit Terry's color tastes
 
-calebS and jenniferZ -- 2017-01-08 1:19 PM
+calebS, jenniferZ -- 2017-01-08 1:19 PM
 --------------------------------
 - Updated templates so that the necessary buttons are shown when a user is logged in, or not logged in
-  - **TO DO**: Assume templates are logged in or not (based on what it is)
-  - Fix app.py so that the home route redirects to login.html\
   
 calebS -- 2017-01-08 7:43 PM
 --------------------------------
@@ -105,3 +103,17 @@ calebS -- 2017-01-10 6:03 PM
 Worked with Getty Image and Clarifai API. An image url that is received from getty images is run through Clarifai and a list of words
 associated with the image are returned. The idea is that these terms associated with the Getty Image image will then be cycled through 
 Getty Image to output an image to the user (depending on whether or not the user liked the original image of course). 
+
+jenniferZ -- 2017-01-10 2:21 AM
+--------------------------------
+- Based on login status:
+  - Templates will display differently (ex: register/login button when not logged in, logout button for when logged in)
+  - Fixed app.py so that home.html redirects to login.html if not logged in
+- Added logout function
+
+jenniferZ -- 2017-01-10 11:24 PM
+--------------------------------
+- Added footer for logout when the user is logged in
+  - Added and used Bootstrap example css file for footer, sticky-footer.css
+- Fixed app.py so that all pages (except for login.html and register.html) redirects to login.html if not logged in
+- Used Bootstrap for forms (login.html and register.html)
