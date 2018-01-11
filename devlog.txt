@@ -117,3 +117,8 @@ jenniferZ -- 2017-01-10 11:24 PM
   - Added and used Bootstrap example css file for footer, sticky-footer.css
 - Fixed app.py so that all pages (except for login.html and register.html) redirects to login.html if not logged in
 - Used Bootstrap for forms (login.html and register.html)
+
+jenniferZ -- 2017-01-11 04:52 PM
+--------------------------------
+- Started working on selecting pictures in display.html
+  - Added image.css, used for images (code found online)
