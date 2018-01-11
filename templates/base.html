@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/style1.css">
+    <link rel="stylesheet" href="/static/sticky-footer.css">
     
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
@@ -46,6 +47,17 @@
     
     {% block body %}
     {% endblock %}
+
+    {% if notlogged %}
+    {% else %}
+    <footer class="footer">
+      <div class="container">
+	  <center>
+	    <a href="/logout"> <span class="logout">Logout here! </span></a>
+	  </center>
+      </div>
+    </footer>
+    {% endif %}
     
   </body>
 

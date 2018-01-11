@@ -55,3 +55,16 @@ input{
 .nav-title:hover{
     color: #ffffff;
 }
+.footer{
+    //background-color: #97e8fc;
+    background-color: #a0ecff;
+}
+.logout{
+    font-weight: bold;
+    font-size: 175%;
+    color: #3198ed;
+    font-family: 'Tangerine';
+}
+.logout:hover{
+    color: #59b1f9;
+}
