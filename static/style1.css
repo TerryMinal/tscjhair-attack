@@ -68,3 +68,9 @@ input{
 .logout:hover{
     color: #59b1f9;
 }
+.flash_msg{
+    color: #ff0000;
+    font-family: 'Lato';
+    font-size: 85%;
+    font-weight:bold ;
+}

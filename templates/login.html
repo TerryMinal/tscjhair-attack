@@ -11,6 +11,19 @@
   If you do not have an account, please 
   <span class="aclick-here"><a href="/register">click here</a>
     to register!<br><br></span>
+
+
+  
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  {% for message in messages %}
+  <span class="flash_msg"><center> {{message}} </center></span>
+  {% endfor %}
+  {% endif %}
+  <br>
+  {% endwith %}
+
+
   
   <div class="container">
   <form action="/auth" method="POST">

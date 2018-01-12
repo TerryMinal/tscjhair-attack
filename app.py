@@ -39,16 +39,14 @@ def auth():
             session["username"] = usernamein
             return redirect(url_for("home"))
         else:
-            flash("WRONG USER/PASS COMBO")
-            flash("TRY AGAIN")
+            flash("Login was not successful. Please try again.")
             return redirect(url_for("login"))
     except:
         return redirect(url_for("login"))
         
 @app.route("/display")
 def display():
-    #imgs={"https://thumb1.shutterstock.com/display_pic_with_logo/158830/550002070/stock-vector-art-pop-art-illustration-pop-art-design-template-for-art-gallery-art-studio-school-of-the-arts-550002070.jpg", "http://pawprintnews.com/wp-content/uploads/2016/09/Art.jpg", "https://www.saci-florence.edu/sites/default/files/img/promo/maria_nissan_923x563.jpg"}
-    imgs={"http://cdn.shopify.com/s/files/1/0822/1983/articles/baby-pooh-pixel-art-pixel-art-baby-pooh-winnie-the-pooh-pooh-bear-pooh-disney-pixel-8bit.png?v=1501258328", "https://i.pinimg.com/736x/a5/58/6a/a5586acfff0d5ddd5e3fd3b2bf9eda6b--pony-bead-patterns-perler-patterns.jpg"}
+    imgs={"https://thumb1.shutterstock.com/display_pic_with_logo/158830/550002070/stock-vector-art-pop-art-illustration-pop-art-design-template-for-art-gallery-art-studio-school-of-the-arts-550002070.jpg", "http://pawprintnews.com/wp-content/uploads/2016/09/Art.jpg", "https://www.saci-florence.edu/sites/default/files/img/promo/maria_nissan_923x563.jpg","http://cdn.shopify.com/s/files/1/0822/1983/articles/baby-pooh-pixel-art-pixel-art-baby-pooh-winnie-the-pooh-pooh-bear-pooh-disney-pixel-8bit.png?v=1501258328", "https://i.pinimg.com/736x/a5/58/6a/a5586acfff0d5ddd5e3fd3b2bf9eda6b--pony-bead-patterns-perler-patterns.jpg"}
     if checkIfLogged():
         return render_template("display.html", medium="art", images=imgs)
     return redirect(url_for("home"))
