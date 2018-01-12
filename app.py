@@ -13,7 +13,7 @@ def home():
     med = {"art", "photography", "digital", "painting", "music"}
     if checkIfLogged():
         print "logged in"
-        return render_template("home.html", user="me", mediums=med)
+        return render_template("home.html", user=session["username"], mediums=med)
     else:
         print "notlogged"
         return render_template("login.html", notlogged=True)
@@ -23,7 +23,9 @@ def register():
         #db.add_user(request.form[])
         req = request.form
         if req['password0'] == req['password1']:
+            #NEED TO CHECK IF USERNAME IS ALREADY TAKEN
             db.add_user(req['username'], req['password0'])
+            session["username"]=req["username"]
             return redirect(url_for("home"))
         else:
             return 'failed'

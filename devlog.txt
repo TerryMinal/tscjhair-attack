@@ -137,3 +137,7 @@ jenniferZ -- 2017-01-11 11:42 PM
 --------------------------------
 - Worked on radio buttons: still needs work on unchecking boxes
 - Flash message looks decent now
+
+jenniferZ -- 2017-01-11 10:36 AM
+--------------------------------
+- Modified app.py so that when you register, you are automatically logged in.
