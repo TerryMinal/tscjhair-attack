@@ -7,9 +7,11 @@
 
 <center>
   <h1>Displaying {{medium}}!</h1>
-
   {% for img in images %}
-  <img src={{img}}>
+  <label>
+    <input type="radio"/>
+    <img src={{img}} class="rounded">
+  </label>
   {% endfor %}
   
 </center>
