@@ -93,13 +93,7 @@ jenniferZ -- 2017-01-03 2:49 PM
 calebS, jenniferZ -- 2017-01-08 1:19 PM
 --------------------------------
 - Updated templates so that the necessary buttons are shown when a user is logged in, or not logged in
-<<<<<<< HEAD
-  - **TO DO**: Assume templates are logged in or not (based on what it is)
-  - Fix app.py so that the home route redirects to login.html\
 
-=======
-
->>>>>>> ef5f7e8ecb5746f6caced48172b0e1492de03533
 calebS -- 2017-01-08 7:43 PM
 --------------------------------
 Began work on API calls for GettyImages. Also procured key for the API (not pushed)
