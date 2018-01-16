@@ -1,5 +1,6 @@
 import sqlite3
 from hashlib import sha1
+from random import random
 #Databases:
     #images: name|id|url|tags
     #users: username|email|password|ml
@@ -73,5 +74,25 @@ def get_authentication(username, password, f='util/data.db'):
         #    print us
     #if password==use
 
+def load_image_to_db(name, id, url, tag):
+    comm = "INSERT INTO images VALUES (\"" + name + "\", \"" + id + "\", \"" + url + "\", \""+ tag +"\")"
+    command(comm)
 
-print_all_from_table('users')
+def get_5_images():
+    fetch_image = return_command("SELECT * FROM images")
+    images = []
+    for image in fetch_image:
+        images.append(image)
+    return_images = []
+    for i in range(5):
+        r = -1
+        while r == -1 or r in return_images:
+            r = (int) (random() * len(images))
+        return_images.append(r)
+    ret = []
+    for ri in return_images:
+        ret.append(images[ri])
+    return ret
+
+#load_image_to_db('q', 'r', 's', 't')
+print get_5_images()
