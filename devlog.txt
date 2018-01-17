@@ -135,3 +135,7 @@ jenniferZ -- 2017-01-11 11:42 PM
 jenniferZ -- 2017-01-11 10:36 AM
 --------------------------------
 - Modified app.py so that when you register, you are automatically logged in.
+
+calebS -- 2017-01-16 11:32 PM
+--------------------------------
+Fixed bug where on a Getty API call the request fails due to bad characters in url. Used urllib.quote(Phrase) to fix this.
