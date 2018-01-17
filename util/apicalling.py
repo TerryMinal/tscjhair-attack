@@ -26,7 +26,7 @@ def getty(answer):
 
 
 
-
+print getty("pie and cake")
 
 
 from clarifai.rest import ClarifaiApp
