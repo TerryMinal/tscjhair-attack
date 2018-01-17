@@ -1,6 +1,9 @@
+import urllib
 import urllib2
 import json
 # NOTE: MUST PIP INSTALL CLARIFAI
+
+
 def getKey(filename):
     try:
         f = open(filename)
@@ -11,6 +14,7 @@ def getKey(filename):
         return ""
 
 def getty(answer):
+    answer = urllib.quote(answer)
     url = urllib2.Request("https://api.gettyimages.com/v3/search/images?sort_order=most_popular&phrase=" + answer, headers={ 'Api-Key' : getKey("gettykey.txt")})
     uResp = urllib2.urlopen( url )
     contentsraw = uResp.read()
@@ -22,7 +26,6 @@ def getty(answer):
 
 
 
-#print getty("pie")
 
 
 
@@ -38,4 +41,4 @@ def clarifai(imgurl):
         attributes.append(modelret[i]["name"])
     return attributes
 
-print clarifai(getty("pie"))
+print clarifai(getty("pie and cake"))
