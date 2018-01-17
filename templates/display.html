@@ -7,12 +7,20 @@
 
 <center>
   <h1>Displaying {{medium}}!</h1>
-  {% for img in images %}
-  <label>
-    <input type="radio"/>
-    <img src={{img}} class="rounded">
-  </label>
-  {% endfor %}
+
+  <form id="display_pics">
+    {% for img in images %}
+    <label>
+      <input type="checkbox"/>
+      <img src={{img}} class="rounded">
+      
+    </label>
+    {% endfor %}
+    <br>
+    <button id="display_submit"> heyo</button>
+  </form>
+    
+  
   
 </center>
 

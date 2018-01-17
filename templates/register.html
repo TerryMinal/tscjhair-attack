@@ -12,6 +12,18 @@
   <span class="aclick-here"><a href="/login">click here</a>
   to login!<br><br></span>
 
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  {% for message in messages %}
+  <span class="flash_msg"><center> {{message}} </center></span>
+  {% endfor %}
+  {% endif %}
+  <br>
+  {% endwith %}
+
+
+  
   <div class="container">
   <form action="/register" method="POST">
     <div class="form-group">

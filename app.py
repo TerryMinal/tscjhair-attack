@@ -28,7 +28,7 @@ def register():
             session["username"]=req["username"]
             return redirect(url_for("home"))
         else:
-            return 'failed'
+            flash("Register was not successful. Please try again.")
     if checkIfLogged():
         return redirect(url_for("home"))
     return render_template("register.html", notlogged=True)
