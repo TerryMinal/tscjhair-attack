@@ -35,7 +35,17 @@ on the QAF, or follow the below instructions on how to acquire one for each API.
 
 Spotify:
 Clarifai:
+
+1. Sign up for a clarifai account [here](https://clarifai.com/developer/account/signup)
+2. Confirm email address
+3. Navigate [here](https://clarifai.com/developer/account/keys) to view your new key!
+
 Getty Images:
+
+1. Sign up for a gettyimages account [here](https://developer.gettyimages.com/member/register), and
+make sure to check the box that says "Issue a new key for Getty Test"
+2. Confirm email address
+3. Navigate [here](https://developer.gettyimages.com/apps/mykeys) to view your new key!
 
 ## Dependancies
 
