@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 {% block title %}
-    Login
+    Display
 {% endblock %}
 
 {% block body %}
 
 <center>
   <h1>Displaying {{medium}}!</h1>
-
-  <form id="display_pics">
+  Select the pieces that you like, then submit! <br>We'll take the ones you didn't like, and replace them with new pieces that you may like!<br><br>
+  
+  <span id="display_pics">
     {% for img in images %}
     <label>
       <input type="checkbox"/>
@@ -17,11 +18,11 @@
     </label>
     {% endfor %}
     <br>
-    <button id="display_submit"> heyo</button>
-  </form>
+    <button id="display_submit">Submit!</button>
+  </span>
     
   
-  
+    <script src="/static/script.js"></script>
 </center>
 
   
