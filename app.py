@@ -1,5 +1,7 @@
 from flask import Flask, render_template, session, flash, redirect, url_for, request
 import os
+import json
+import time
 from util import db
 
 app = Flask(__name__)
@@ -64,6 +66,14 @@ def display():
     if checkIfLogged():
         return render_template("display.html", medium="art", images=imgs)
     return redirect(url_for("home"))
+
+@app.route("/update_display")
+def update_display():
+    data=request.args.get("replace_pics")
+    print(data)
+    response={'new_pics': data}
+    #response=(calls getty)
+    return json.dumps(response)
 
 @app.route("/logout")
 def logout():
