@@ -12,15 +12,23 @@ This project is a site that gives the user a list of five art mediums, and the u
 ## How to run
 
 Enter a virtualenv if you wish, and run `python app.py`
-Go to the main page, create an account, and select the type of art you want to choose
+Go to the main page, create an account, and select the art medium you like (music, visual art/images)
+Start selecting images/music you like/dislike! Submit your results and repeat. Based on your inputed likes/dislikes, we return images/music we think you might like.
 
-sample account for demo:
+If you would like to see an account where machine learning has processed some data, use the following sample account:
 Username: sample
 Password: sample
 
 ### API keys
 
-API keys should be in a file called credentials.txt, which we will give to you. Make sure credentials.txt is in the right place (in the folder called credentials, which you may have to make yourself).
+API keys should be in a file called credentials.txt inputed as such:
+
+```
+Spotify:<KEY>
+Clarifai:<KEY>
+GettyImages:<KEY>
+***NOTE: no space between name of API and <KEY>
+```
 
 ## Dependancies
 
