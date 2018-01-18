@@ -6,10 +6,21 @@ var display_pics = function(e){
 	    console.log('img ' + i + ' is checked!');
 	}
 	else{
-
-	    
-
 	    console.log('img ' + i + ' isn\'t checked!');
+	    
+	    $.ajax({
+		url: '/update_display',
+		type: 'GET', 
+		data:{"replace_pics": input[i]},
+
+		success: function(d){
+		    console.log(d);
+		    console.log(JSON.parse(d));
+		    d=JSON.parse(d);
+		    console.log(d['new_pics']);
+		}
+
+	    });
 	}
 	i++;
     }
