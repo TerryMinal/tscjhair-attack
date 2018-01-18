@@ -2,6 +2,7 @@ var display_pics = function(e){
     //alert('test');
     console.log('test');
     var input=document.getElementsByTagName('input');
+    var img=document.getElementsByTagName('img');
     var i =0;
     while(i < 5) {
         if(input[i].checked) {
@@ -9,7 +10,8 @@ var display_pics = function(e){
         }
         else{
             console.log('img ' + i + ' isn\'t checked!');
-            runAjax(input[i]);
+            console.log(input[i]);
+            runAjax(img[i].src);
         }
         i++;
     }
@@ -26,7 +28,7 @@ var runAjax = function(inp) {
         data: {"replace_pics": inp},
         async: true,
         beforeSend: function() {
-            console.log('b');
+            console.log('data: '+inp);
         },
         success: function(d){
             console.log('a');

@@ -69,6 +69,7 @@ def display():
 
 @app.route("/update_display")
 def update_display():
+    #return 'hi'
     data=request.args.get("replace_pics")
     print(data)
     response={'new_pics': data}
@@ -79,6 +80,10 @@ def update_display():
 def logout():
     session.pop("username")
     return redirect(url_for("home"))
+
+@app.route('/spotify') #Just for testing
+def spotify():
+    return render_template('spotify.html')
 
 if __name__ == "__main__":
     app.debug = True
