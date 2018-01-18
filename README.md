@@ -11,7 +11,8 @@ This project is a site that gives the user a list of five art mediums, and the u
 
 ## How to run
 
-Enter a virtualenv if you wish, and run `python app.py`
+run `python app.py`. If you wish-- and is suggested-- enter a virtualenv and run 
+python.py
 Go to the main page, create an account, and select the art medium you like (music, visual art/images)
 Start selecting images/music you like/dislike! Submit your results and repeat. Based on your inputed likes/dislikes, we return images/music we think you might like.
 
@@ -29,6 +30,12 @@ Clarifai:<KEY>
 GettyImages:<KEY>
 ***NOTE: no space between name of API and <KEY>
 ```
+To acquire API keys, either replace credentials.txt with the credentials.txt we posted 
+on the QAF, or follow the below instructions on how to acquire one for each API.
+
+Spotify:
+Clarifai:
+Getty Images:
 
 ## Dependancies
 
