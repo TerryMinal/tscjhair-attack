@@ -87,7 +87,7 @@ def get_5_images():
     for i in range(5):
         r = -1
         while r == -1 or r in return_images:
-            r = (int) (random() * len(images))
+            r = (int)( random() * len(images))
         return_images.append(r)
     ret = []
     for ri in return_images:
