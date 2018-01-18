@@ -66,17 +66,17 @@ jenniferZ -- 2017-12-28 10:17 AM
 - Started on basic front end, and now all the necessary pages can be rendered in the flask app.
 - Added custom css file: style0.css
 
-jenniferZ -- 2017-01-03 1:17 PM
+jenniferZ -- 2018-01-03 1:17 PM
 --------------------------------
 - Updated base.html for flash messages
 - Updated style0.css with prettier colors
 
-jenniferZ -- 2017-01-03 11:23 PM
+jenniferZ -- 2018-01-03 11:23 PM
 --------------------------------
 - Updated base.html so that it embeded the necessary fonts from Google Fonts
 - Updated style0.css so that it has fonts: Done with basic front end
 
-CalebS -- 2017-01-04 10:56 PM
+CalebS -- 2018-01-04 10:56 PM
 --------------------------------
 - Updated app.py and added a basic authentication framework to be incorporated with db for completion. Once logged in, /login and /register redirect to the home page.
 - Updated templates so once logged in, the options in the header to link to /login and /register do not appear.
@@ -86,56 +86,60 @@ petersS 2018-1-5 1:41
 --------------------------------
 Added spotify API template.
 
-jenniferZ -- 2017-01-03 2:49 PM
+jenniferZ -- 2018-01-03 2:49 PM
 --------------------------------
 - Added new style, style1.css, to fit Terry's color tastes
 
-calebS, jenniferZ -- 2017-01-08 1:19 PM
+calebS, jenniferZ -- 2018-01-08 1:19 PM
 --------------------------------
 - Updated templates so that the necessary buttons are shown when a user is logged in, or not logged in
 
-calebS -- 2017-01-08 7:43 PM
+calebS -- 2018-01-08 7:43 PM
 --------------------------------
 Began work on API calls for GettyImages. Also procured key for the API (not pushed)
 
-shainaP 2017-01-08 10:56 PM
+shainaP 2018-01-08 10:56 PM
 --------------------------------
 Database is mostly set up, you can do everything with users pretty easily.
 
-calebS -- 2017-01-10 6:03 PM
+calebS -- 2018-01-10 6:03 PM
 --------------------------------
 Worked with Getty Image and Clarifai API. An image url that is received from getty images is run through Clarifai and a list of words
 associated with the image are returned. The idea is that these terms associated with the Getty Image image will then be cycled through
 Getty Image to output an image to the user (depending on whether or not the user liked the original image of course).
 
-jenniferZ -- 2017-01-10 2:21 AM
+jenniferZ -- 2018-01-10 2:21 AM
 --------------------------------
 - Based on login status:
   - Templates will display differently (ex: register/login button when not logged in, logout button for when logged in)
   - Fixed app.py so that home.html redirects to login.html if not logged in
 - Added logout function
 
-jenniferZ -- 2017-01-10 11:24 PM
+jenniferZ -- 2018-01-10 11:24 PM
 --------------------------------
 - Added footer for logout when the user is logged in
   - Added and used Bootstrap example css file for footer, sticky-footer.css
 - Fixed app.py so that all pages (except for login.html and register.html) redirects to login.html if not logged in
 - Used Bootstrap for forms (login.html and register.html)
 
-jenniferZ -- 2017-01-11 04:52 PM
+jenniferZ -- 2018-01-11 04:52 PM
 --------------------------------
 - Started working on selecting pictures in display.html
   - Added image.css, used for images (code found online)
 
-jenniferZ -- 2017-01-11 11:42 PM
+jenniferZ -- 2018-01-11 11:42 PM
 --------------------------------
 - Worked on radio buttons: still needs work on unchecking boxes
 - Flash message looks decent now
 
-jenniferZ -- 2017-01-11 10:36 AM
+jenniferZ -- 2018-01-11 10:36 AM
 --------------------------------
 - Modified app.py so that when you register, you are automatically logged in.
 
-calebS -- 2017-01-16 11:32 PM
+calebS -- 2018-01-16 11:32 PM
 --------------------------------
 Fixed bug where on a Getty API call the request fails due to bad characters in url. Used urllib.quote(Phrase) to fix this.
+
+terryG -- 2018-01-16 9:27 PM
+--------------------------------
+Updated Readme.md, added requirements.txt and credentials.txt
