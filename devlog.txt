@@ -143,3 +143,7 @@ Fixed bug where on a Getty API call the request fails due to bad characters in u
 terryG -- 2018-01-16 9:27 PM
 --------------------------------
 Updated Readme.md, added requirements.txt and credentials.txt
+
+calebS -- 2018-01-17 9:42 PM
+--------------------------------
+Helped JZ begin AJAX work. Updated README.md to include API Key procuring instructions for gettyimages and clarifai
