@@ -2,7 +2,7 @@ var display_pics = function(e){
     //alert('test');
     console.log('test');
     var input=document.getElementsByTagName('input');
-    var img=document.getElementsByTagName('img');
+    var img=document.getElementsByClass('rounded');
     var i =0;
     while(i < 5) {
         if(input[i].checked) {
