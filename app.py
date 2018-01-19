@@ -12,7 +12,7 @@ def checkIfLogged():
 
 @app.route("/")
 def home():
-    med = {"art", "photography", "digital", "painting", "music"}
+    med = {"art", "music"}
     if checkIfLogged():
         print "logged in"
         return render_template("home.html", user=session["username"], mediums=med)

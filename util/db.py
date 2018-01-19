@@ -5,6 +5,20 @@ from random import random
     #images: name|id|url|tags
     #users: username|email|password|ml
 
+#try init_db()
+#f='util/data.db'
+#check for valid username passwords
+
+def init_db(f='test.db'):
+    db = sqlite3.connect(f)
+    c = db.cursor()
+    c.execute("CREATE TABLE images(name TEXT PRIMARY KEY, id INTEGER, url TEXT, tags TEXT)")
+    c.execute("CREATE TABLE users(name TEXT, email TEXT, password, TEXT, ml TEXT)")
+    
+    db.commit()
+    db.close()
+
+    
 def command(command, f='util/data.db'):
     db = sqlite3.connect(f)
     c = db.cursor()
@@ -95,4 +109,7 @@ def get_5_images():
     return ret
 
 #load_image_to_db('q', 'r', 's', 't')
-print get_5_images()
+#print get_5_images()
+
+
+init_db()
