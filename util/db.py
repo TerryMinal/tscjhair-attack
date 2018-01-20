@@ -9,12 +9,11 @@ from random import random
 #f='util/data.db'
 #check for valid username passwords
 
-def init_db(f='test.db'):
+def init_db(f='util/data.db'):
     db = sqlite3.connect(f)
     c = db.cursor()
     c.execute("CREATE TABLE images(name TEXT PRIMARY KEY, id INTEGER, url TEXT, tags TEXT)")
-    c.execute("CREATE TABLE users(name TEXT, email TEXT, password, TEXT, ml TEXT)")
-    
+    c.execute("CREATE TABLE users(id INTEGER PRIMARY KEY, username TEXT NOT NULL, email TEXT, password TEXT, ml TEXT)")
     db.commit()
     db.close()
 
@@ -111,5 +110,13 @@ def get_5_images():
 #load_image_to_db('q', 'r', 's', 't')
 #print get_5_images()
 
-
-init_db()
+'''
+add_user('jenni', 'moo')
+try:
+    add_user('jenni','boo')
+except:
+    print('nop')
+    
+print_all_from_table('images')
+print_all_from_table('users')
+'''
