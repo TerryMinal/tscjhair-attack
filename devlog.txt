@@ -144,6 +144,20 @@ terryG -- 2018-01-16 9:27 PM
 --------------------------------
 Updated Readme.md, added requirements.txt and credentials.txt
 
+jenniferZ -- 2018-01-17 01:19 PM
+--------------------------------
+- Fixed checkbox in display.html
+- Worked on AJAX in display.html with Caleb
+
 calebS -- 2018-01-17 9:42 PM
 --------------------------------
 Helped JZ begin AJAX work. Updated README.md to include API Key procuring instructions for gettyimages and clarifai
+
+jenniferZ -- 2018-01-20 01:21 PM
+--------------------------------
+- Worked on db:
+  - When you run app.py, it creates a db if it doesn't exist
+  - Changed username to be PRIMARY KEY
+- Checked for edge cases when registering:
+  - Empty username/password
+  - Username taken
