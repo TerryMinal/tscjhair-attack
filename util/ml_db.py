@@ -16,7 +16,7 @@ def add_to_table(name, f='util/ml_db.db'):
         next_val = 0
     else:
         next_val = prev_val[0][0] + 1
-    c.execute("INSERT INTO ml VALUES('%s', '%d'" %(name, next_val))
+    c.execute("INSERT INTO ml VALUES('%s', '%d')" %(name, next_val))
         
     db.commit()
     db.close()
