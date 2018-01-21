@@ -50,7 +50,10 @@ def get_table_size(table, f='util/data.db'):
     for num in r:
         new = num
     print new
-    ret =new[0]+1
+    if table=='users':
+        ret=new+1
+    else:
+        ret =new[0]+1
     return ret
 
 

@@ -11,7 +11,7 @@ This project is a site that gives the user a list of five art mediums, and the u
 
 ## How to run
 
-run `python app.py`. If you wish-- and is suggested-- enter a virtualenv and run 
+run `python app.py`. If you wish-- and is suggested-- enter a virtualenv and run
 python.py
 Go to the main page, create an account, and select the art medium you like (music, visual art/images)
 Start selecting images/music you like/dislike! Submit your results and repeat. Based on your inputed likes/dislikes, we return images/music we think you might like.
@@ -30,7 +30,7 @@ Clarifai:<KEY>
 GettyImages:<KEY>
 ***NOTE: no space between name of API and <KEY>
 ```
-To acquire API keys, either replace credentials.txt with the credentials.txt we posted 
+To acquire API keys, either replace credentials.txt with the credentials.txt we posted
 on the QAF, or follow the below instructions on how to acquire one for each API.
 
 #### Spotify:
@@ -54,6 +54,8 @@ make sure to check the box that says "Issue a new key for Getty Test"
   * requests
   * clarifai
   * spotipy
+  * numpy
+  * scipy
 
 `pip install -r requirements.txt`
 if this fails, run `pip install <package name>` where package name is the individual package names listed above

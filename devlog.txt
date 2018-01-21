@@ -161,3 +161,12 @@ jenniferZ -- 2018-01-20 01:21 PM
 - Checked for edge cases when registering:
   - Empty username/password
   - Username taken
+
+terryG -- 2018-01-20 10:00 AM
+--------------------------------
+Continued work on machine learning. Own minimization program proved useless as it couldn't
+optimize an unconstrained multi-variable function
+
+terryG -- 2018-01-21 12:15 PM
+--------------------------------
+integrated optimization using packages numpy and scipy. Both packages have been added to the README and requirements.txt
