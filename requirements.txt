@@ -1,3 +1,5 @@
 spotipy
 clarifai
 requests
+numpy
+scipy
