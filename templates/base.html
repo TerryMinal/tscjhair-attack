@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  
+
   <head>
     <title>{% block title %} {% endblock %}</title>
 
@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="/static/style1.css">
     <link rel="stylesheet" href="/static/sticky-footer.css">
     <link rel="stylesheet" href="/static/image.css">
-    
+
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    
+
   </head>
 
   <body>
@@ -26,14 +26,14 @@
 	<div class="navbar-header">
 	  <a class="navbar-brand" href="/"><span class="nav-title">For the Love of Art</span></a>
 	</div>
-	
+
 	{% if notlogged %}
 	<ul class="nav navbar-nav navbar-right">
 	  <li><a href="/register"><span class="nav-text">Register!</span></a></li>
 	  <li><a href="/login"><span class="nav-text">Login!</span></a></li>
 	</ul>
 	{% endif %}
-	
+
       </div>
     </nav>
 
@@ -63,8 +63,7 @@
     {% endif %}
 
 
-    
+
   </body>
 
 </html>
-
