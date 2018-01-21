@@ -1,6 +1,6 @@
 import requests
 
-token = "BQCx-UVRk2wVsctUXGdaFVn6O4J61Hv50iPDKFsZa3Mt4h_y-FbrJbAWJlxkyk3AbVRs1nWdGiPdxuxTCUZPcoQQVJ2ro9-9GpMiWolNNJQ9I46OQnxNqNGFFjqgPuMmaYyH5oLl8RfjCt-uJFwAcCUq1ee49TJs35uYxTfYf1-8G-U2pEfHQ6B-QA"
+token = "BQCIC3mVpCgwW7bt4iCLDjYOOyYMS6B5wCG8-4KWSXKPv7N1cTqsusgDaYTOhyAQNYZJziODTxR4SG1FC6O1r9BWouipluGz0rrtCh_Suoz6m-DKdM0L-0IxUx_OLSkX6zf_-fUnwavCpiS1Kx4AavVCcY-GvFdaUxkAPQv5CdtEw4jFb6EZ0O00PQ"
 
 def get_random(start): #Doesn't work very well
     print 'test'
@@ -35,7 +35,14 @@ def get_relevant_from_random():
         rands.append({'genres':song['genres'], 'name': song['name'], 'href':song['href']})
     return rands
 
+def get_audio_features(code):
+    req = "https://api.spotify.com/v1/audio-features/" + code + "?access_token=" + token
+    r = requests.get(req)
+    for thing in r:
+        print thing
+
 #get_random('two')
 #get_artist('2qvP9yerCZCS0U1gZU8wYp')
 #get_song("27l2hfl85KUIK9z6N8dNUP")
-get_relevant_from_random()
+#get_relevant_from_random()
+get_audio_features('27l2hfl85KUIK9z6N8dNUP')
