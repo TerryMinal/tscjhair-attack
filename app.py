@@ -7,12 +7,17 @@ from util import db
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
 
+try:
+    db.init_db()
+except:
+    print "db has already been created!"
+    
 def checkIfLogged():
     return session.get("username")
 
 @app.route("/")
 def home():
-    med = {"art", "photography", "digital", "painting", "music"}
+    med = {"art", "music"}
     if checkIfLogged():
         print "logged in"
         return render_template("home.html", user=session["username"], mediums=med)
@@ -24,13 +29,20 @@ def register():
     if request.method == "POST":
         #db.add_user(request.form[])
         req = request.form
-        if req['password0'] == req['password1']:
-            #NEED TO CHECK IF USERNAME IS ALREADY TAKEN
-            db.add_user(req['username'], req['password0'])
-            session["username"]=req["username"]
-            return redirect(url_for("home"))
+
+        if req['username'] == "":
+            flash("Please enter a username!")
+        elif req['password0'] != req['password1']:
+            flash("Passwords do not match!")
+        elif req['password0']=='':
+            flash("Please enter a password!")
         else:
-            flash("Register was not successful. Please try again.")
+            try:
+                db.add_user(req['username'], req['password0'])
+                session["username"]=req["username"]
+                return redirect(url_for("home"))
+            except:
+                flash("Username taken. Please try another one.")
     if checkIfLogged():
         return redirect(url_for("home"))
     return render_template("register.html", notlogged=True)
@@ -48,9 +60,7 @@ def auth():
     try:
         usernamein = request.form.get('username')
         passwordin = request.form.get('password')
-        #return db.get_authentication(usernamein, passwordin)
         if db.get_authentication(usernamein, passwordin): #usernamein == "USER" and passwordin == "PASS":
-            flash("test")
             session["username"] = usernamein
             return redirect(url_for("home"))
         else:
@@ -58,7 +68,7 @@ def auth():
             return redirect(url_for("login"))
     except:
         return "hi"
-        return redirect(url_for("login"))
+    return redirect(url_for("login"))
 
 @app.route("/display")
 def display():
