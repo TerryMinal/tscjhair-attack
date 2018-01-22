@@ -1,4 +1,5 @@
 import sqlite3
+from random import random
 
 def init_db(f='util/ml_db.db'):
     db = sqlite3.connect(f)
@@ -36,6 +37,20 @@ def find_word(name, f='util/ml_db.db'):
         return -1
     else:
         return val[0][1]
+
+def random_val( f='util/ml_db.db'):
+    db = sqlite3.connect(f)
+    c=db.cursor()
+    c.execute("SELECT val FROM ml WHERE val = (SELECT MAX(val) FROM ml)")
+    max_val = c.fetchall() + 1
+    if len(max_val) == 0:
+        return -1
+    i = random() * max_val
+    c.execute("SELECT name, val FROM ml WHERE val = '%d' " %i)
+    db.commit()
+    db.close()
+    val = c.fetchall()
+    return val[0][1]
 
 
 # init_db('ml_db.db')

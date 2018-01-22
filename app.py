@@ -2,7 +2,7 @@ from flask import Flask, render_template, session, flash, redirect, url_for, req
 import os
 import json
 import time
-from util import db, apicalling, ml
+from util import db, ml_db, apicalling, ml
 
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
@@ -118,6 +118,14 @@ def logout():
 # @app.route('/spotify') #Just for testing
 # def spotify():
 #     return render_template('spotify.html')
+
+def get_content():
+    content = []
+    for i in range(3):
+        content.append()
+    # x = [ml_db.random_val() for i in range(5)] # do this for each db
+    # predict(parameters, x) # i think i need to create a db for images, genre, and artists, might as well do
+    # features while im at it
 
 if __name__ == "__main__":
     app.debug = True
