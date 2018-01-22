@@ -2,7 +2,8 @@ from flask import Flask, render_template, session, flash, redirect, url_for, req
 import os
 import json
 import time
-from util import db, ml_db, apicalling, ml
+from util import db, ml_db, ml
+from util import apicalling as api
 
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
@@ -121,6 +122,7 @@ def logout():
 
 def get_content(thing):
     result = []
+    count = 0
     # if (thing == "music"):
     #     genre = [ml_db.random_val("genre") for i in range(7)]
     #     artist [ml_db.random_val("artist") for i in range(7)]
@@ -131,10 +133,20 @@ def get_content(thing):
     #                 count++
     #                 result.append()
     if (thing == "art"):
-        img [ml_db.random_val("img") for i in range(5)]
-        content = []
-    for i in range(3):
-        content.append()
+        img = [ [ml_db.random_val("img") for i in range(len(parameters))] for i in range(10) ]
+        for i in range(10):
+            if (ml.predict(parameters, img[i]) >= .5):
+                result.append(img[i])
+                count += 1
+            if (count >= 2):
+                break
+    data = []
+    for i in range(5 - len(result)): #assures that we get 5 images
+        t = api.getty(ml_db.random_val("img"))
+        data.append([t, api.clarifai(t)])
+    for i in range(len(result)):
+        t = api.getty(result[i])
+        data.append([t, api.clarifai(t)])
     # x = [ml_db.random_val() for i in range(5)] # do this for each db
     # predict(parameters, x) # i think i need to create a db for images, genre, and artists, might as well do
     # features while im at it

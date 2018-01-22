@@ -21,7 +21,6 @@ def add_to_table(content, thing, f='util/ml_db.db'):
     else:
         next_val = prev_val[0][0] + 1
     c.execute("INSERT INTO %s VALUES('%s', '%d')" %(content, thing, next_val))
-
     db.commit()
     db.close()
 
@@ -47,17 +46,22 @@ def random_val(content, f='util/ml_db.db'):
     max_val = c.fetchall()
     if len(max_val) == 0: #in the case where there is nothing in the table
         return -1
-    print "max: ", max_val[0][0] + 1
+    # print "max: ", max_val[0][0] + 1
     i = random() * (max_val[0][0] + 1)
     c.execute("SELECT %s, val FROM %s WHERE val = '%d' " %(content, content, i)) # gets a random name and value pair
     val = c.fetchall()
+    # print val
     db.commit()
     db.close()
-    return val[0][1]
+    return [int(val[0][1]), val[0][0]]
 
 
 # init_db('ml_db.db')
-# add_to_table("genre", "wart", "./ml_db.db")
-print find_word("genre", "cool", './ml_db.db')
-print find_word("genre", "pew", './ml_db.db')
-print random_val("genre", './ml_db.db')
+# add_to_table("img", "pie", "./ml_db.db")
+# add_to_table("img", "happy", "./ml_db.db")
+# add_to_table("img", "pew", "./ml_db.db")
+# add_to_table("img", "sad", "./ml_db.db")
+# print find_word("genre", "cool", './ml_db.db')
+# print find_word("genre", "pew", './ml_db.db')
+# print random_val("genre", './ml_db.db')
+# print random_val("genre")

@@ -17,7 +17,7 @@ def getKey(l='../credentials.txt'):
                 # list with name of API and API key
                 d[a[0]] = a[1] # makes list into dictionary with format {API NAME: API KEY}
 
-            print d
+            # print d
             global SPOTIFY_KEY
             SPOTIFY_KEY = d["SPOTIFY"]
             global GETTY_KEY
@@ -28,11 +28,12 @@ def getKey(l='../credentials.txt'):
         print "****API KEY NOT FOUND******"
         return ""
 
-getKey()
-print "GETTY:", GETTY_KEY
-print CLARIFAI_KEY
+# getKey()
+# print "GETTY:", GETTY_KEY
+# print CLARIFAI_KEY
 
 def getty(answer):
+    global GETTY_KEY
     answer = urllib.quote(answer)
     url = urllib2.Request("https://api.gettyimages.com/v3/search/images?sort_order=most_popular&phrase=" + answer, headers={ 'Api-Key' : GETTY_KEY})# getKey("gettykey.txt")})
     uResp = urllib2.urlopen( url )
@@ -45,12 +46,13 @@ def getty(answer):
 
 
 
-print getty("pie and cake")
+# print getty("pie and cake")
 
 
 from clarifai.rest import ClarifaiApp
 from clarifai.rest import Image as ClImage
 def clarifai(imgurl):
+    global CLARIFAI_KEY
     app = ClarifaiApp(api_key= CLARIFAI_KEY)#getKey("clarifaikey.txt"))
     model = app.models.get('general-v1.3')
     image = ClImage(url=imgurl)
@@ -60,4 +62,4 @@ def clarifai(imgurl):
         attributes.append(modelret[i]["name"])
     return attributes
 
-print clarifai(getty("pie and cake"))
+# print clarifai(getty("pie and cake"))
