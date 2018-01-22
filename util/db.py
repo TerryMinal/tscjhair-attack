@@ -40,7 +40,7 @@ def print_all_from_table(table, f='util/data.db'):
     for entry in r:
         print entry
 
-def get_table_size(table, f='data.db'):
+def get_table_size(table, f='util/data.db'):
     #inefficent but fight me
     db=sqlite3.connect(f)
     c=db.cursor()
