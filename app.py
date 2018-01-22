@@ -131,7 +131,8 @@ def get_content(thing):
     #                 count++
     #                 result.append()
     if (thing == "art"):
-    content = []
+        img [ml_db.random_val("img") for i in range(5)]
+        content = []
     for i in range(3):
         content.append()
     # x = [ml_db.random_val() for i in range(5)] # do this for each db
