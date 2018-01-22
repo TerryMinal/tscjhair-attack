@@ -41,10 +41,16 @@ def get_content(thing):
         temp = ml_db.random_val("img")
         print temp
         t = api.getty(temp[1])
+        ap = api.clarifai(t)
+        # ap = " ".join(str(x) for x in ap)
+        # print "ap: ", ap
         data.append([t, api.clarifai(t)])
     for i in range(len(result)):
         t = api.getty(" ".join(str(x) for x in result[i]))
-        data.append([t, api.clarifai(t)])
+        ap = api.clarifai(t)
+        # ap = " ".join(str(x) for x in ap)
+        # print "ap:", ap
+        data.append( [t, ap] )
     print json.dumps(data)
     # x = [ml_db.random_val() for i in range(5)] # do this for each db
     # predict(parameters, x) # i think i need to create a db for images, genre, and artists, might as well do
