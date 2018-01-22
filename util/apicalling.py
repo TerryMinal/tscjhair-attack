@@ -15,7 +15,7 @@ def getKey(filename):
 
 def getty(answer):
     answer = urllib.quote(answer)
-    url = urllib2.Request("https://api.gettyimages.com/v3/search/images?sort_order=most_popular&phrase=" + answer, headers={ 'Api-Key' : getKey("gettykey.txt")})
+    url = urllib2.Request("https://api.gettyimages.com/v3/search/images?sort_order=most_popular&phrase=" + answer, headers={ 'Api-Key' : "w7m3fv5uw7kjcz83r37fcwkq"})# getKey("gettykey.txt")})
     uResp = urllib2.urlopen( url )
     contentsraw = uResp.read()
     dat = json.loads(contentsraw)
@@ -32,11 +32,11 @@ print getty("pie and cake")
 from clarifai.rest import ClarifaiApp
 from clarifai.rest import Image as ClImage
 def clarifai(imgurl):
-    app = ClarifaiApp(api_key=getKey("clarifaikey.txt"))
+    app = ClarifaiApp(api_key= "a1ebd75d22034b018f3b542283f07585")#getKey("clarifaikey.txt"))
     model = app.models.get('general-v1.3')
     image = ClImage(url=imgurl)
     attributes = []
-    modelret = model.predict([image])["outputs"][0]["data"]["concepts"] 
+    modelret = model.predict([image])["outputs"][0]["data"]["concepts"]
     for i in range(len(modelret)):
         attributes.append(modelret[i]["name"])
     return attributes
