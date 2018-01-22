@@ -119,7 +119,18 @@ def logout():
 # def spotify():
 #     return render_template('spotify.html')
 
-def get_content():
+def get_content(thing):
+    result = []
+    # if (thing == "music"):
+    #     genre = [ml_db.random_val("genre") for i in range(7)]
+    #     artist [ml_db.random_val("artist") for i in range(7)]
+    #     count = 0
+    #     for music in genre:
+    #         for singer in artist:
+    #             if (predict(parameters, [music, singer]) >= .5):
+    #                 count++
+    #                 result.append()
+    if (thing == "art"):
     content = []
     for i in range(3):
         content.append()
