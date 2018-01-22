@@ -40,9 +40,20 @@ def print_all_from_table(table, f='util/data.db'):
     for entry in r:
         print entry
 
-def get_table_size(table, f='util/data.db'):
+def get_table_size(table, f='data.db'):
     #inefficent but fight me
-    db = sqlite3.connect(f)
+    db=sqlite3.connect(f)
+    c=db.cursor()
+    c.execute("SELECT id FROM %s WHERE id = (SELECT MAX(id) FROM %s)" %(table, table))
+    prev_val = c.fetchall()
+    # print prev_val
+    if len(prev_val) == 0:
+        next_val = 0
+    else:
+        next_val = prev_val[0][0] + 1
+    return next_val
+        
+''' db = sqlite3.connect(f)
     c = db.cursor()
     inp = "SELECT id FROM " + table + ";"
     r = c.execute(inp)
@@ -50,11 +61,14 @@ def get_table_size(table, f='util/data.db'):
     for num in r:
         new = num
     print new
+    
     if table=='users':
         ret=new+1
     else:
         ret =new[0]+1
-    return ret
+    return ret    
+'''
+   
 
 
 def add_person(username, email, password, ml):
@@ -110,6 +124,7 @@ def get_5_images():
         ret.append(images[ri])
     return ret
 
+
 #load_image_to_db('q', 'r', 's', 't')
 #print get_5_images()
 
@@ -121,5 +136,14 @@ except:
     print('nop')
     
 print_all_from_table('images')
+print_all_from_table('users')
+try:
+    init_db()
+except:
+    print "db already initialized!"
+add_user('jenni', 'boo')
+add_user('jen', 'beep')
+add_user('jenz', 'boop')
+add_user('jennnn', 'bap')
 print_all_from_table('users')
 '''
