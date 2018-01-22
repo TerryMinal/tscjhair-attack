@@ -1,4 +1,5 @@
 var returnPics = []
+var data = []
 
 var display_pics = function(e){
     //alert('test');
@@ -35,7 +36,7 @@ var runAjax = function(inp) {
         },
         success: function(d){
             //console.log('a');
-            //console.log(d);
+            console.log(d);
             d=JSON.parse(d);
             //console.log(d);
             //console.log(d.new_pics);

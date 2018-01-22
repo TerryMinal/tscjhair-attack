@@ -1,11 +1,12 @@
 import json
 from util import apicalling as api
 from util import ml, ml_db
+# from time import sleep
 
-parameters = [1,1,1,1,1,1,1]
+# parameters = [1,1,1,1,1,1,1]
 api.getKey("credentials.txt")
 
-def get_content(thing):
+def get_content(parameters, thing):
     result = []
     count = 0
     # if (thing == "music"):
@@ -30,12 +31,11 @@ def get_content(thing):
             numbers.append(t1)
             tags.append(t2)
         for i in range(10):
-            if (ml.predict(parameters, temp[i]) >= .5):
+            if (ml.predict(parameters, numbers[i]) >= .5):
                 result.append(tags[i])
                 count += 1
             if (count >= 2):
                 break
-        print "done finding predicted images: ", img
     data = []
     for i in range(5 - len(result)): #assures that we get 5 images
         temp = ml_db.random_val("img")
@@ -45,15 +45,18 @@ def get_content(thing):
         # ap = " ".join(str(x) for x in ap)
         # print "ap: ", ap
         data.append([t, api.clarifai(t)])
+        # sleep(1)
     for i in range(len(result)):
         t = api.getty(" ".join(str(x) for x in result[i]))
         ap = api.clarifai(t)
         # ap = " ".join(str(x) for x in ap)
         # print "ap:", ap
         data.append( [t, ap] )
-    print json.dumps(data)
+    j = json.dumps(data)
+    print j
+    return j
     # x = [ml_db.random_val() for i in range(5)] # do this for each db
     # predict(parameters, x) # i think i need to create a db for images, genre, and artists, might as well do
     # features while im at it
 
-get_content("art")
+# get_content("art")
