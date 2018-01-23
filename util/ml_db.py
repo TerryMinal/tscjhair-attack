@@ -23,11 +23,12 @@ def add_to_table(content, thing, f='util/ml_db.db'):
     c.execute("INSERT INTO %s VALUES('%s', '%d')" %(content, thing, next_val))
     db.commit()
     db.close()
+    return next_val
 
 # finds the word inside the db
 # if it exists, it'll return its value
 # else return -1
-def find_word(content, thing, f='util/ml_db.db'):
+def get_word_num(content, thing, f='util/ml_db.db'):
     db = sqlite3.connect(f)
     c=db.cursor()
     c.execute("SELECT %s, val FROM %s WHERE %s = '%s' " %(content, content, content, thing))
@@ -35,7 +36,7 @@ def find_word(content, thing, f='util/ml_db.db'):
     db.commit()
     db.close()
     if len(val) == 0:
-        return -1
+        return add_to_table(content, thing, f)
     else:
         return val[0][1]
 
@@ -61,7 +62,7 @@ def random_val(content, f='util/ml_db.db'):
 # add_to_table("img", "happy", "./ml_db.db")
 # add_to_table("img", "pew", "./ml_db.db")
 # add_to_table("img", "sad", "./ml_db.db")
-# print find_word("genre", "cool", './ml_db.db')
-# print find_word("genre", "pew", './ml_db.db')
+#print get_word_num("img", "cool", 'ml_db.db')
+#print get_word_num("img", "pew", 'ml_db.db')
 # print random_val("genre", './ml_db.db')
 # print random_val("genre")

@@ -3,7 +3,7 @@ import apicalling as api
 import ml, ml_db
 # from time import sleep
 
-parameters = [1,1,1,1,1,1,1]
+#parameters = [1,1,1,1,1,1,1]
 api.getKey("credentials.txt")
 
 def get_content(parameters, thing):
@@ -39,7 +39,6 @@ def get_content(parameters, thing):
     data = []
     for i in range(5 - len(result)): #assures that we get 5 images
         temp = ml_db.random_val("img")
-        print temp
         t = api.getty(temp[1])
         # ap = " ".join(str(x) for x in ap)
         # print "ap: ", ap
@@ -56,12 +55,9 @@ def get_content(parameters, thing):
     #print j
     # dwrap = {'data':data}
     j = json.dumps(data)
-    print j
-    l = json.loads(j)
-    print l
     return j
     # x = [ml_db.random_val() for i in range(5)] # do this for each db
     # predict(parameters, x) # i think i need to create a db for images, genre, and artists, might as well do
     # features while im at it
 
-get_content("img", parameters)
+#get_content("img", parameters)

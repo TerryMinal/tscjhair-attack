@@ -4,13 +4,10 @@
 {% endblock %}
 
 {% block body %}
-<!-- <head> -->
-    <!-- <script src="/static/script.js"></script> -->
-<!-- </head> -->
 <script src="static/display.js" charset="utf-8"></script>
 <center>
   <h1>Displaying {{medium}}!</h1>
-  Select the pieces that you like, then submit! <br>We'll take the ones you didn't like, and replace them with new pieces that you may like!<br><br>
+  Select the pieces that you like, then submit! <br>We'll take your response, and our machine learning algorithm will return new images that you might like!<br><br>
 
   <span id="display_pics">
     {% for img in images %}

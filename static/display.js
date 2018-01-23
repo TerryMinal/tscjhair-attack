@@ -7,6 +7,7 @@ var display_pics = function(e){
     var input=document.getElementsByTagName('input');
     var img=document.getElementsByClassName('rounded');
     var i =0;
+    inp = [];
     while(i < 5) {
         if(input[i].checked) {
             console.log('img ' + i + ' is checked!');
@@ -15,10 +16,12 @@ var display_pics = function(e){
             console.log('img ' + i + ' isn\'t checked!');
             console.log(input[i]);
         }
-        returnPics = []
-        runAjax(img[i].src);
+        inp.push(img[i].src);
         i++;
     }
+    returnPics = [];
+    runAjax(inp);
+    
 };
 $(document).ready(function() {
     document.getElementById("display_submit").addEventListener('click', display_pics);
@@ -26,26 +29,29 @@ $(document).ready(function() {
 });
 
 var runAjax = function(inp) {
+    // console.log(inp);
+    send = JSON.stringify(inp);
+    // console.log(send);
     $.ajax({
         type: 'GET',
         url: '/update_display',
-        data: {"replace_pics": inp},
+        data: {"replace_pics": send},
         async: true,
         beforeSend: function() {
-            console.log('data: '+inp);
+           //  console.log('data: '+send);
         },
         success: function(d){
             //console.log('a');
+	    console.log('printing d')
             console.log(d);
             d=JSON.parse(d);
-            //console.log(d);
+            console.log(d);
             //console.log(d.new_pics);
-            returnPics.push(d.new_pics)
-            if (returnPics.length == 5) {
-                shuffle(returnPics)
-                console.log(returnPics);
-                overwriteWithNew()
-            }
+            returnPics = d;
+            shuffle(returnPics);
+            console.log(returnPics);
+            overwriteWithNew();
+            
         }
 
     });
@@ -63,10 +69,12 @@ function shuffle(array) {//Stolen, but just using this for testing
   }
 }
 var overwriteWithNew = function() {
+    var input=document.getElementsByTagName('input');
     var img = document.getElementsByClassName('rounded');
     var i = 0;
     while (i < 5) {
-        //console.log(img[i])
+        input[i].checked=false;
+        console.log(returnPics[i])
         img[i].src = returnPics[i];
         i++
     }

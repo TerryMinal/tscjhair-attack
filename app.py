@@ -10,7 +10,7 @@ app.secret_key = os.urandom(32)
 
 api.getKey("credentials.txt")
 
-parameters = [1,1,1,1,1,1,1]
+parameters = []
 tsetX = []
 tsetY = []
 
@@ -24,10 +24,11 @@ def checkIfLogged():
 
 @app.route("/")
 def home():
-    med = {"art", "music"}
+    med = {"art"}
     if checkIfLogged():
         try:
-            parameters = [int(i) for i in (db.get_ml_by_id(session["username"]).split(',')) ]
+            global parameters
+            parameters = [int(i) for i in (db.get_ml_by_user(session["username"]).split(',')) ]
             print "parameters:", parameters
         except:
             print "no data in parameter"
@@ -52,6 +53,8 @@ def register():
         else:
             if(db.add_user(req['username'], req['password0'])):
                 session["username"]=req["username"]
+                global parameters
+                parameters = db.get_ml_by_user(req["username"])
                 return redirect(url_for("home"))
             else:
                 flash("Username taken. Please try another one.")
@@ -70,25 +73,29 @@ def login():
 def auth():
     if checkIfLogged():
         return redirect(url_for("home"))
-    try:
-        usernamein = request.form.get('username')
-        passwordin = request.form.get('password')
-        if db.get_authentication(usernamein, passwordin): #usernamein == "USER" and passwordin == "PASS":
-            session["username"] = usernamein
-            return redirect(url_for("home"))
-        else:
-            flash("Login was not successful. Please try again.")
-            return redirect(url_for("login"))
-    except:
-        return "hi"
-    return redirect(url_for("login"))
+    #try:
+    usernamein = request.form.get('username')
+    passwordin = request.form.get('password')
+    if db.get_authentication(usernamein, passwordin): #usernamein == "USER" and passwordin == "PASS":
+        session["username"] = usernamein
+        global parameters
+        parameters = db.get_ml_by_user(usernamein)
+        print parameters
+        parameters = json.loads(parameters)
+        return redirect(url_for("home"))
+    else:
+        flash("Login was not successful. Please try again.")
+        return redirect(url_for("login"))
+    #except:
+    #    return "hi"
+    #return redirect(url_for("login"))
 
 @app.route("/display")
 def display():
-    # imgs={"https://thumb1.shutterstock.com/display_pic_with_logo/158830/550002070/stock-vector-art-pop-art-illustration-pop-art-design-template-for-art-gallery-art-studio-school-of-the-arts-550002070.jpg", "http://pawprintnews.com/wp-content/uploads/2016/09/Art.jpg", "https://www.saci-florence.edu/sites/default/files/img/promo/maria_nissan_923x563.jpg","http://cdn.shopify.com/s/files/1/0822/1983/articles/baby-pooh-pixel-art-pixel-art-baby-pooh-winnie-the-pooh-pooh-bear-pooh-disney-pixel-8bit.png?v=1501258328", "https://i.pinimg.com/736x/a5/58/6a/a5586acfff0d5ddd5e3fd3b2bf9eda6b--pony-bead-patterns-perler-patterns.jpg"}
     if checkIfLogged():
         global parameters
         imgs= get_content(parameters, "img")
+        print len(imgs)
         imgs=json.loads(imgs)
         return render_template("display.html", medium="art", images=imgs)
     else:
@@ -96,31 +103,52 @@ def display():
 
 @app.route("/update_display")
 def update_display():
-    data=request.args.get("replace_pics")
-    # arr is a json of data abot song/art
-    # convert arr to an array mapping strings to numbers based on ml_db
+    global parameters
+    data = request.args.get("replace_pics")
+    data = json.loads(data)
+    print "\n\n\n\n\n\n\n\n"
+    print data
+    print "\n\n\n\n\n\n\n\n"
+    for i in data:
+        print i
+    c = [ [int(ml_db.get_word_num("img", x)) for x in api.clarifai(i)] for i in data]
+    d = []
+    for x in c:
+        d.append(x[:3]) #takes only the first three parameters
     # update training set
     # optimize parameters
-    # using parameters (genre, artist) pass into the predict function
-    # finds random genres in ml_db and pass it into the predict function
-    # if the predict function retursn > .5, send it to the user
-    # get imgs/music from the ml_db (maybe have to separate ml_db into music and imgs)
     # return 3 random and 2 predicted images
-    ml.append_train_set(arr, tsetX, tsetY)
-    parameters = ml.optimize(parameters, tsetX, tsetY)
-    # predict(parameters, x) # x is a list of data retrieved from ml_db
-    # img = apicalling.getty()
-    # new_data = apicalling.clarifai
-    response={'new_pics': data}
+        #print "\n========================x: \n", x
+    print "\n\n\n\n\n\n\n\n"
+    print "d: ", d
+    print "\n\n\n\n\n\n\n\n end of d"
+    global tsetX
+    global tsetY
+    for i in d:
+        ml.append_train_set(i, tsetX, tsetY)
+    parameters = ml.optimize_parameters(parameters, tsetX, tsetY)
+    #print parameters
+    print "\n\n\n\n\n\n\n\n"
+    print "parameters: ", parameters 
+    print "\n\n\n\n\n\n\n\n"
+    #predict(parameters, x) # x is a list of data retrieved from ml_db
+    img = get_content(parameters, "img")
+    print "\n\n\n\n\n\n\n\n"
+    print img
+    print "\n\n\n\n\n\n\n\n"
+    # response = json.loads(img)
     #response=(calls getty)
-    return json.dumps(response)
+    #img = json.dumps(img)
+    return img
 
 @app.route("/logout")
 def logout():
+    db.edit_ml_by_user(session["username"], json.dumps(parameters))
     session.pop("username")
     return redirect(url_for("home"))
 
 # @app.route('/spotify') #Just for testing
+
 # def spotify():
 #     return render_template('spotify.html')
 

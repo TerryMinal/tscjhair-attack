@@ -85,11 +85,11 @@ def add_user(username, password, f="util/data.db"):
     prev_val = c.fetchall()
     # print prev_val
     if len(prev_val) == 0:
-        add_person(username, '', password, '{}')
+        add_person(username, '', password, '[1,1,1]')
         return True
     else:
         return False
-    
+
 def get_ml_by_id(id, f='util/data.db'):
     db = sqlite3.connect(f)
     c = db.cursor()
@@ -100,8 +100,22 @@ def get_ml_by_id(id, f='util/data.db'):
         tup = entry[0]
     return tup
 
+def get_ml_by_user(username, f='util/data.db'):
+    db = sqlite3.connect(f)
+    c = db.cursor()
+    inp = "SELECT ml FROM users WHERE username=\"" + username + "\";"
+    r = c.execute(inp)
+    tup = None
+    for entry in r:
+        tup = entry[0]
+    return tup
+
 def edit_ml_by_id(id, ml, f='util/data.db'):
     comm = "UPDATE users SET ml=\"" + ml + "\" WHERE id=\""+str(id)+"\";"
+    command(comm)
+    
+def edit_ml_by_user(username, ml, f='util/data.db'):
+    comm = "UPDATE users SET ml=\"" + ml + "\" WHERE id=\""+username+"\";"
     command(comm)
 
 def get_authentication(username, password, f='util/data.db'):
