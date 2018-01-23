@@ -78,9 +78,18 @@ def add_person(username, email, password, ml):
     comm = "INSERT INTO users VALUES (\"" + str(get_table_size('users')) + "\", \"" + username + "\", \"" + email + "\", \"" + tempp + "\", \"" + ml + "\");"
     command(comm)
 
-def add_user(username, password):
-    add_person(username, '', password, '{}')
-
+def add_user(username, password, f="util/data.db"):
+    db=sqlite3.connect(f)
+    c=db.cursor()
+    c.execute("SELECT * FROM users WHERE username = \"" + username + "\"")
+    prev_val = c.fetchall()
+    # print prev_val
+    if len(prev_val) == 0:
+        add_person(username, '', password, '{}')
+        return True
+    else:
+        return False
+    
 def get_ml_by_id(id, f='util/data.db'):
     db = sqlite3.connect(f)
     c = db.cursor()

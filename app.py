@@ -50,11 +50,10 @@ def register():
         elif req['password0']=='':
             flash("Please enter a password!")
         else:
-            #try:
-                db.add_user(req['username'], req['password0'])
+            if(db.add_user(req['username'], req['password0'])):
                 session["username"]=req["username"]
                 return redirect(url_for("home"))
-           # except:
+            else:
                 flash("Username taken. Please try another one.")
     if checkIfLogged():
         # db.edit_ml_by_id(req['username'], ml.populate_parameters())
