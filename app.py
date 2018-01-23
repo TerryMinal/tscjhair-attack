@@ -1,7 +1,7 @@
 from flask import Flask, render_template, session, flash, redirect, url_for, request
 import os
 import json
-from util.content import get_content
+from debug import get_content
 from util import db, ml_db, ml
 from util import apicalling as api
 

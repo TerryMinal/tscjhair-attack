@@ -1,10 +1,10 @@
 import json
-import apicalling as api
-import ml, ml_db
+from util import apicalling as api
+from util import ml, ml_db
 # from time import sleep
 
 # parameters = [1,1,1,1,1,1,1]
-# api.getKey("credentials.txt")
+api.getKey("credentials.txt")
 
 def get_content(parameters, thing):
     result = []
