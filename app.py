@@ -89,6 +89,7 @@ def display():
     if checkIfLogged():
         global parameters
         imgs= get_content(parameters, "img")
+        imgs=json.loads(imgs)
         return render_template("display.html", medium="art", images=imgs)
     else:
         return redirect(url_for("home"))
