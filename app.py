@@ -26,12 +26,13 @@ def checkIfLogged():
 def home():
     med = {"art"}
     if checkIfLogged():
-        try:
-            global parameters
-            parameters = [int(i) for i in (db.get_ml_by_user(session["username"]).split(',')) ]
-            print "parameters:", parameters
-        except:
-            print "no data in parameter"
+        # try:
+        global parameters
+        parameters = json.loads( db.get_ml_by_user(session["username"]) )
+        parameters = [float(x) for x in parameters]
+        print "parameters:", parameters
+        # except:
+            # print "no data in parameter"
         print "logged in"
         return render_template("home.html", user=session["username"], mediums=med)
     else:
@@ -54,7 +55,8 @@ def register():
             if(db.add_user(req['username'], req['password0'])):
                 session["username"]=req["username"]
                 global parameters
-                parameters = db.get_ml_by_user(req["username"])
+                parameters = [1,1,1]
+                # parameters = db.get_ml_by_user(req["username"])
                 return redirect(url_for("home"))
             else:
                 flash("Username taken. Please try another one.")
@@ -103,7 +105,6 @@ def display():
 
 @app.route("/update_display")
 def update_display():
-    global parameters
     data = request.args.get("replace_pics")
     data = json.loads(data)
     print "\n\n\n\n\n\n\n\n"
@@ -124,12 +125,15 @@ def update_display():
     print "\n\n\n\n\n\n\n\n end of d"
     global tsetX
     global tsetY
+    global parameters
     for i in d:
         ml.append_train_set(i, tsetX, tsetY)
+    print tsetX, tsetY
     parameters = ml.optimize_parameters(parameters, tsetX, tsetY)
+    print "parameters:",  parameters[0] + 1
     #print parameters
     print "\n\n\n\n\n\n\n\n"
-    print "parameters: ", parameters 
+    print "parameters: ", parameters
     print "\n\n\n\n\n\n\n\n"
     #predict(parameters, x) # x is a list of data retrieved from ml_db
     img = get_content(parameters, "img")
@@ -143,7 +147,11 @@ def update_display():
 
 @app.route("/logout")
 def logout():
-    db.edit_ml_by_user(session["username"], json.dumps(parameters))
+    global parameters
+    l_param = ''.join(str(x) +',' for x in parameters)
+    l_param = l_param[:len(l_param)- 1]
+    print l_param
+    db.edit_ml_by_user(session["username"], l_param)
     session.pop("username")
     return redirect(url_for("home"))
 
