@@ -224,6 +224,6 @@ terryG -- 2018-01-23 11:00 AM
 --------------------------------
 fixed issues with route and AJAX. adjusted requirements.txt
 
-CalebS -- 2018-01-24 01:56 AM
+calebS -- 2018-01-24 01:56 AM
 --------------------------------
 Worked on final project video
