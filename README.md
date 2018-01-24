@@ -26,15 +26,12 @@ Password: sample
 API keys should be in a file called credentials.txt inputed as such:
 
 ```
-Spotify:<KEY>
 Clarifai:<KEY>
 GettyImages:<KEY>
 ***NOTE: no space between name of API and <KEY>
 ```
 To acquire API keys, either replace credentials.txt with the credentials.txt we posted
 on the QAF, or follow the below instructions on how to acquire one for each API.
-
-#### Spotify:
 
 #### Clarifai:
 
@@ -54,8 +51,7 @@ make sure to check the box that says "Issue a new key for Getty Test"
   * flask
   * requests
   * clarifai
-  * spotipy
-  * numpy
+  * numpy
   * scipy
 
 `pip install -r requirements.txt`
