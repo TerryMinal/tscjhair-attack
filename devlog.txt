@@ -21,18 +21,32 @@ firstL -- TIMESTAMP
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- data formatting when you send data between back end and front
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Spotify never worked
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Machine learning!
+- Some rudimentary multi-variable calculus
+- AJAX
+- JQuery
+- spotify and clarifai API python libraries
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- SCRAP SPOTIFY
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- never, and I say never, use the Spotify API. This is assuming you want to stay sane.
+The Spotify API lacks proper documentation, is difficult to initially set up, interact with, and just use
+overall. The Spotify API lacks any logical UI. One example is the retrieval of music by a specific artist:
+retrieving music by an artist requires the artist code, but the artist code is not "considered a resource",
+as stated by the documentation, and so isn't provided. This leaves the programmers-- us-- unable to retrieve
+any relevant data at all.
 
 ============================================================
 
@@ -202,3 +216,10 @@ Made ajax work properly, including being fully integrated with python. Currently
 shainaP -- 2018-01-22 5:57 PM
 --------------------------------
 Made you able to fetch and edit the ml part of the database.
+terryG -- 2018-01-22 3:00 PM
+--------------------------------
+added get_content function
+
+terryG -- 2018-01-23 11:00 AM
+--------------------------------
+fixed issues with route and AJAX. adjusted requirements.txt
