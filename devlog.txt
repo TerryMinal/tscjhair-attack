@@ -82,7 +82,7 @@ CalebS -- 2018-01-04 10:56 PM
 - Updated templates so once logged in, the options in the header to link to /login and /register do not appear.
 - Updated flash messages for failed login
 
-petersS 2018-1-5 1:41
+shainaP 2018-1-5 1:41
 --------------------------------
 Added spotify API template.
 
@@ -136,6 +136,14 @@ jenniferZ -- 2018-01-11 10:36 AM
 --------------------------------
 - Modified app.py so that when you register, you are automatically logged in.
 
+shainaP -- 2018-01-12 12:18 AM
+--------------------------------
+Made the database work and allowed users to log in.
+
+shainaP -- 2018-01-16 1:10 PM
+--------------------------------
+Allowed you to get 5 random images from the database and also put images into the database.
+
 calebS -- 2018-01-16 11:32 PM
 --------------------------------
 Fixed bug where on a Getty API call the request fails due to bad characters in url. Used urllib.quote(Phrase) to fix this.
@@ -153,6 +161,14 @@ calebS -- 2018-01-17 9:42 PM
 --------------------------------
 Helped JZ begin AJAX work. Updated README.md to include API Key procuring instructions for gettyimages and clarifai
 
+shainaP -- 2018-01-18 12:06 AM
+--------------------------------
+Put ajax calls in a separate function, fixing it.
+
+shainaP -- 2018-01-18 1:13 PM
+--------------------------------
+Figured out that the problem with ajax was we were sending objects and not text, so I fixed that. I also made a better way of acquiring the images.
+
 jenniferZ -- 2018-01-20 01:21 PM
 --------------------------------
 - Worked on db:
@@ -167,6 +183,22 @@ terryG -- 2018-01-20 10:00 AM
 Continued work on machine learning. Own minimization program proved useless as it couldn't
 optimize an unconstrained multi-variable function
 
+shainaP -- 2018-01-21 3:44 AM
+--------------------------------
+Allowed you to fetch songs from Spotify, made the Spotify API sort of work.
+
 terryG -- 2018-01-21 12:15 PM
 --------------------------------
 integrated optimization using packages numpy and scipy. Both packages have been added to the README and requirements.txt
+
+shainaP -- 2018-01-21 2:32 PM
+--------------------------------
+Allowed for getting audio features from Spotify API, but it's kind of broken.
+
+shainaP -- 2018-01-22 1:47 PM
+--------------------------------
+Made ajax work properly, including being fully integrated with python. Currently, this just shuffles the pictures, but it proves a link is being sent back and forth.
+
+shainaP -- 2018-01-22 5:57 PM
+--------------------------------
+Made you able to fetch and edit the ml part of the database.
