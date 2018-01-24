@@ -4,6 +4,7 @@ Terry Guan: Machine learning algorithm, generating data and images
 Caleb Smith-salzberg: Getty Images and Clarifai API master, app.py routing technician
 Jennifer Zhang: Front end developer, AJAX (not Achilles) and JS user
 
+[Watch our demo here.](https://youtu.be/QmE7R-jl1x4)
 
 ## What it is
 
